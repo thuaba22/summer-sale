@@ -54,6 +54,8 @@ applyButton.addEventListener('click',function(){
   else{
     alert('Please type valid coupon code');
     couponInput.value = '';
+    sell200Btn.disabled = false;
+
   }  
 
 });
