@@ -24,7 +24,7 @@
               <h1 class="text-[#111111] text-center text-6xl font-bold mt-10 mb-16">Purchase TK 200 or above & get <span class="text-[#E527B2]">20% off</span></h1>
               <div class="text-center"> 
                 <p class="text-[#111] font-medium text-2xl inline">Use Promo Code</p>
-                <button class="btn bg-[#E527B2] hover:bg-[#ad5996] text-white border-none rounded-none">SELL200</button>
+                <button id="sell20-btn" class="btn bg-[#E527B2] hover:bg-[#ad5996] text-white border-none rounded-none" disabled>SELL200</button>
               </div>
             </div>
            <div class="mr-0 ml-16 md:mr-0 md:ml-0">
@@ -40,7 +40,7 @@
          <div class="flex-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             <h2 class="col-span-full text-[#111] font-semibold text-4xl mt-12 mb-8 lg:mb-0">Kitchenware</h2>
            <!-- product 1 -->
-           <div class="card h-[350px]  bg-base-100 shadow-xl">
+           <div id="product-1" class="card h-[350px]  bg-base-100 shadow-xl">
             <figure class="px-10 pt-10">
               <img src="/images/prod1.png" alt="Shoes" class="rounded-xl" />
             </figure>
@@ -52,12 +52,12 @@
                     <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
                     <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
                   </div>
-              <h2 class="card-title">K. Accessories</h2>
-              <p class="text-gray-400">39.00 TK</p>
+              <h2 class="card-title">Spoon</h2>
+              <p class="text-gray-400"><span id="product-price-1">39.00</span> TK</p>
             </div>
           </div>
            <!-- product 2 -->
-           <div class="card h-[350px] bg-base-100 shadow-xl">
+           <div id="product-2" class="card h-[350px] bg-base-100 shadow-xl">
             <figure class="px-10 pt-10">
               <img src="/images/prod2.png" alt="Shoes" class="rounded-xl" />
             </figure>
@@ -69,12 +69,12 @@
                     <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
                     <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
                   </div>
-              <h2 class="card-title">K. Accessories</h2>
+              <h2 class="card-title">Chopping Board</h2>
               <p class="text-gray-400">25.00 TK</p>
             </div>
           </div>
            <!-- product 3 -->
-           <div class="card h-[350px] bg-base-100 shadow-xl">
+           <div id="product-3" class="card h-[350px] bg-base-100 shadow-xl">
             <figure class="px-10 pt-10">
               <img src="/images/prod3.png" alt="Shoes" class="rounded-xl" />
             </figure>
@@ -92,7 +92,7 @@
           </div>
           <h2 class="col-span-full text-[#111] font-semibold text-4xl mt-12 mb-8 lg:mb-0">Sportswear</h2>
            <!-- product 4 -->
-           <div class="card h-[350px] bg-base-100 shadow-xl">
+           <div id="product-4" class="card h-[350px] bg-base-100 shadow-xl">
             <figure class="px-10 pt-10">
               <img src="/images/prod4.png" alt="Shoes" class="rounded-xl" />
             </figure>
@@ -109,7 +109,7 @@
             </div>
           </div>
            <!-- product 5 -->
-           <div class="card h-[350px] bg-base-100 shadow-xl">
+           <div id="product-5" class="card h-[350px] bg-base-100 shadow-xl">
             <figure class="px-10 pt-10">
               <img src="/images/prod5.png" alt="Shoes" class="rounded-xl" />
             </figure>
@@ -126,7 +126,7 @@
             </div>
           </div>
            <!-- product 6 -->
-           <div class="card h-[350px] bg-base-100 shadow-xl">
+           <div id="product-6" class="card h-[350px] bg-base-100 shadow-xl">
             <figure class="px-10 pt-10">
               <img src="/images/prod6.png" alt="Shoes" class="rounded-xl" />
             </figure>
@@ -145,29 +145,44 @@
           
          </div>
          <!--Apply Coupon, product purchase & calculation section -->
-         <div class="md:w-[100%] lg:w-[340px] border-2 border-solid mt-24 px-6 py-2">
+         <div class="md:w-[100%] lg:w-[340px]  mt-24 px-6 py-2">
              <div class="bg-white mb-6 p-6 rounded-lg">
                 <h3 class="text-[#111] text-2xl font-medium">Have coupon?</h3>
                 <div class="join">
-                    <input class="input w-40 input-bordered join-item" placeholder="Coupon code"/>
-                    <button class="btn join-item rounded-lg bg-[#E527B2] text-white hover:bg-[#E527B2]">Apply</button>
+                    <input id="coupon-input" class="input w-40 input-bordered join-item" placeholder="Coupon code"/>
+                    <button id="apply-coupon" class="btn join-item rounded-lg bg-[#E527B2] text-white hover:bg-[#E527B2]" disabled>Apply</button>
                   </div>
              </div>
              <div class="bg-white mb-6 p-6 rounded-lg">
-             <p></p>
+             <div>
+              <p id="product-name" class="text-[#111] text-xl font-medium"></p>
+              </div>
              <hr>
              <div class="mt-2 mb-6">
-             <p>Total Price: </p>
-             <p>Discount: </p>
-             <p>Total: </p>
+             <p>Total Price: <span id="total-price" class="text-gray-400">00.00</span></p>
+             <p>Discount: <span id="discount" class="text-gray-400">00.00</span></p>
+             <p>Total: <span id="total-amount" class="text-gray-400">00.00</span></p>
              </div>
              <hr>
              <div class="mt-6">
-                <button class="btn bg-[#E527B2] hover:bg-[#ad5996] text-white border-none rounded-none">Make Purchase</button>
+                <button onclick="my_modal_1.showModal()" id="purchase-btn" class="btn w-[100%] bg-[#E527B2] hover:bg-[#ad5996] text-white border-none rounded-none" disabled>Make Purchase</button>
+                <dialog id="my_modal_1" class="modal">
+                  <form method="dialog" class="modal-box">
+                    <img class="w-[30%] mx-auto" src="./images/congo.png" alt="">
+                    <h1 class="text-center text-[#111] text-5xl font-bold mt-10">Congratulations</h1>
+                    <p class="text-center text-gray-400 text-xl font-normal mt-4">Your Purchase the product</p>
+                    <div class="modal-action justify-center">
+                      <!-- if there is a button in form, it will close the modal -->
+                      <button onclick="goHome()" class="btn bg-[#E527B2] hover:bg-[#ad5996] text-white border-none rounded-none">Go Home</button>
+                    </div>
+                  </form>
+                </dialog>
              </div>
              </div>
             
       </div>
     </main>
+    <script src="./scripts/utility.js"></script>
+    <script src="./scripts/product-card.js"></script>
 </body>
 </html>
