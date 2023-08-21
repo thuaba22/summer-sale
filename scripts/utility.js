@@ -1,3 +1,4 @@
+// naming all the element by id
 const applyButton = document.getElementById('apply-coupon');
 const sell200Btn = document.getElementById('sell20-btn');
 const purchaseBtn = document.getElementById('purchase-btn');
